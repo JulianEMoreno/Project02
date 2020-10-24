@@ -9,6 +9,7 @@ public class Level01Controller : MonoBehaviour
     [SerializeField] Text _currentScoreTextView;
 
     int _currentScore;
+
    private void Update()
     {
         //Increase Score
@@ -17,6 +18,9 @@ public class Level01Controller : MonoBehaviour
         {
             IncreaseScore(5);
         }
+
+        //Exit level 
+        //TODO bring up popup menu for navigation 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             ExitLevel();
@@ -26,7 +30,7 @@ public class Level01Controller : MonoBehaviour
     {
         //compare score to high score
         int highScore = PlayerPrefs.GetInt("HighScore");
-        if(_currentScore>highScore)
+        if(_currentScore > highScore)
         {
             //save current score as new high score
             PlayerPrefs.SetInt("HighScore", _currentScore);
