@@ -18,5 +18,12 @@ public class MainMenuController : MonoBehaviour
             AudioManager.Instance.PlaySong(_startingSong);
         }
     }
+    public void EraseData()
+    {
+        Debug.Log("Erase Highscore");
+         PlayerPrefs.SetInt("HighScore", 0);
+        //update score display, so we can see the new score
+        _highScoreTextView.text = "0 ";
+    }
 
 }

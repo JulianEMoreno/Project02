@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Level01Controller : MonoBehaviour
 {
     [SerializeField] Text _currentScoreTextView;
-
+    [SerializeField] Canvas _pauseMenu;
     int _currentScore;
 
    private void Update()
@@ -19,15 +19,26 @@ public class Level01Controller : MonoBehaviour
             IncreaseScore(5);
         }
 
+        /*
         //Exit level 
         //TODO bring up popup menu for navigation 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            ExitLevel();
+            PauseMenu();
+           // ExitLevel();
         }
+        */
     }
+    /*
+    public void PauseMenu()
+    {
+        
+    }
+    */
     public void ExitLevel()
     {
+        Debug.Log("Exit");
+
         //compare score to high score
         int highScore = PlayerPrefs.GetInt("HighScore");
         if(_currentScore > highScore)

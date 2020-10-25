@@ -7,6 +7,12 @@ using UnityEngine;
 [RequireComponent(typeof(FPSMotor))]
 public class PlayerController : MonoBehaviour
 {
+    /*
+    public int maxHealth = 100;
+    public int currentHealth;
+
+    public HealthBar healthBar; 
+    */
     FPSInput _input = null;
     FPSMotor _motor = null;
 
@@ -36,7 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         //incorporate our move speed
         _motor.Move(movement * _moveSpeed);
-        Debug.Log("Move: " + movement);
+      //  Debug.Log("Move: " + movement);
     }
     void OnRotate(Vector3 rotation)
     {
@@ -44,24 +50,48 @@ public class PlayerController : MonoBehaviour
         _motor.Turn(rotation.y * _turnSpeed);
         _motor.Look(rotation.x * _turnSpeed);
 
-        Debug.Log("Rotate: " + rotation);
+      //  Debug.Log("Rotate: " + rotation);
     }
 
     void OnJump()
     {
         //apply our jump force to our motor
         _motor.Jump(_jumpStrength);
-        Debug.Log("Jump!");
+      //  Debug.Log("Jump!");
     }
     // Start is called before the first frame update
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        //currentHealth = maxHealth;
+       // healthBar.SetMaxHealth(maxHealth);
+       // Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Debug.Log("sprinting");
+            _moveSpeed = .4f;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                Debug.Log("no sprinting");
+                _moveSpeed = .1f;
+            }
+        /*
+        if(Input.GetKeyDown(KeyCode.O))
+        {
+            TakeDamage(20);
+        }
+        */
     }
+    /*
+    public void TakeDamage (float damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
+    }
+    */
 }

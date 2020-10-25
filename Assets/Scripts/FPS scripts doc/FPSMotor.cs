@@ -58,21 +58,21 @@ public class FPSMotor : MonoBehaviour
     {
         //store this movement for next FixedUpdate tick
         _movementThisFrame = requestMovement;
-        Debug.Log("Move: " + requestMovement);
+       // Debug.Log("Move: " + requestMovement);
     }
 
     public void Turn(float turnAmount)
     {
         //store this rotation for next FixedUpdate tick
         _turnAmountThisFrame = turnAmount;
-        Debug.Log("Turn: " + turnAmount);
+       // Debug.Log("Turn: " + turnAmount);
     }
 
     public void Look(float lookAmount)
     {
         //store this rotation for next FixedUpdate tick
         _lookAmountThisFrame = lookAmount;
-        Debug.Log("Look: " + lookAmount);
+        //Debug.Log("Look: " + lookAmount);
     }
 
     public void Jump(float jumpForce)

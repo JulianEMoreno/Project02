@@ -473,7 +473,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 229816130}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 991874739}
+        m_MethodName: doExitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &229816130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1374,7 +1385,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20c491ab31dfc364e9b97d821de25569, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _startingSong: {fileID: 8300000, guid: ddf0aefa61c268541b81cea5b9c72027, type: 3}
+  _startingSong: {fileID: 0}
   _highScoreTextView: {fileID: 755587970}
 --- !u!1 &1197243487
 GameObject:
@@ -1781,7 +1792,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1819362849}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 991874741}
+        m_MethodName: EraseData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1819362849
 MonoBehaviour:
   m_ObjectHideFlags: 0
