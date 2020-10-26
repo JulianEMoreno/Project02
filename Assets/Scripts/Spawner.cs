@@ -8,6 +8,7 @@ public class Spawner : MonoBehaviour
     public int xPos;
     public int zPos;
     public int enemyCount;
+    public int maxEnemyCount;
     void Start()
     {
         StartCoroutine(EnemyDrop());
@@ -15,7 +16,7 @@ public class Spawner : MonoBehaviour
 
     IEnumerator EnemyDrop()
     {
-        while(enemyCount <5)
+        while(enemyCount <maxEnemyCount)
         {
             xPos = Random.Range(-20, 20);
             zPos = Random.Range(-15, 15);

@@ -7,15 +7,10 @@ using UnityEngine;
 [RequireComponent(typeof(FPSMotor))]
 public class PlayerController : MonoBehaviour
 {
-    /*
-    public int maxHealth = 100;
-    public int currentHealth;
-
-    public HealthBar healthBar; 
-    */
+  
     FPSInput _input = null;
     FPSMotor _motor = null;
-
+    [SerializeField] AudioClip _jumpSound;
     [SerializeField] float _moveSpeed = .1f;
     [SerializeField] float _turnSpeed = 6f;
     [SerializeField] float _jumpStrength = 10f;
@@ -55,6 +50,7 @@ public class PlayerController : MonoBehaviour
 
     void OnJump()
     {
+        AudioManager.Instance.PlaySong(_jumpSound);
         //apply our jump force to our motor
         _motor.Jump(_jumpStrength);
       //  Debug.Log("Jump!");
@@ -62,9 +58,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        //currentHealth = maxHealth;
-       // healthBar.SetMaxHealth(maxHealth);
-       // Cursor.lockState = CursorLockMode.Locked;
+       
     }
 
     // Update is called once per frame
@@ -80,18 +74,7 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("no sprinting");
                 _moveSpeed = .1f;
             }
-        /*
-        if(Input.GetKeyDown(KeyCode.O))
-        {
-            TakeDamage(20);
-        }
-        */
+    
     }
-    /*
-    public void TakeDamage (float damage)
-    {
-        currentHealth -= damage;
-        healthBar.SetHealth(currentHealth);
-    }
-    */
+ 
 }

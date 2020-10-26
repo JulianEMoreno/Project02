@@ -7,34 +7,30 @@ using UnityEngine.UI;
 public class Level01Controller : MonoBehaviour
 {
     [SerializeField] Text _currentScoreTextView;
-    [SerializeField] Canvas _pauseMenu;
+   [SerializeField] Canvas _pauseMenu;
+    [SerializeField] Canvas _deathMenu;
     int _currentScore;
 
+  
    private void Update()
     {
-        //Increase Score
-        //TODO replace with real implementation later
-        if(Input.GetKeyDown(KeyCode.Q))
-        {
-            IncreaseScore(5);
-        }
-
-        /*
-        //Exit level 
-        //TODO bring up popup menu for navigation 
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            PauseMenu();
-           // ExitLevel();
-        }
-        */
-    }
-    /*
-    public void PauseMenu()
-    {
         
+        if(_currentScore == 5)
+        {
+            NextLevel();
+        }
+       
     }
-    */
+  
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("Level02");
+    }
+    public void RestartLevel()
+    {
+        Debug.Log("Restart");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
     public void ExitLevel()
     {
         Debug.Log("Exit");

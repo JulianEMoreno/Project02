@@ -1,21 +1,26 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
+using UnityEngine.UI;
 
 public class EnemyShooter : MonoBehaviour
 {
+
     [SerializeField] GameObject bullet;
     [SerializeField] Transform shootPoint;
     Transform target;
 
+    public Level01Controller controller1;
+
     public int maxHealth = 100;
     public int currentHealth;
-    //int health = 100;
+
     public EnemyHealthBar healthBar;
     [SerializeField] float turnSpeed = 5;
 
     float fireRate = 0.2f;
-  
+    int _currentScore;
 
 
     private void Start()
@@ -28,7 +33,7 @@ public class EnemyShooter : MonoBehaviour
 
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-       // Cursor.lockState = CursorLockMode.Locked;
+   
     }
 
  
@@ -46,13 +51,20 @@ public class EnemyShooter : MonoBehaviour
             Shoot();
         }
 
-        //for testing
-        if (Input.GetKeyDown(KeyCode.O))
+        if(currentHealth == 0)
         {
-            TakeDamage(20);
+             controller1.IncreaseScore(5);
+                     Debug.Log("Killed enemy");
+            Destroy();
         }
+ 
     }
 
+    void Destroy()
+    {
+        Destroy(gameObject);
+    }
+  
     void Shoot()
     {
         Instantiate(bullet, shootPoint.position, shootPoint.rotation);
@@ -60,12 +72,12 @@ public class EnemyShooter : MonoBehaviour
 
     public void TakeDamage(int _damageToTake)
     {
-       
+     
         currentHealth -= _damageToTake;
         healthBar.SetHealth(currentHealth);
         Debug.Log(currentHealth + " Health remaining");
 
         //check to make sure if dead, if so kill this enemy 
     }
-
+   
 }

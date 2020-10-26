@@ -5,7 +5,7 @@ using UnityEngine;
 public class BillBoard : MonoBehaviour
 {
 
-    public Transform camera; 
+    public new Transform camera; 
    
     // Update is called once per frame
     void LateUpdate()
